@@ -1,13 +1,8 @@
 # spring2023-isaacPetersonKSU
-# 
-#
-#
 
-## Introduction
- 
-##### (you can skip this section if you just care about the project 👍)
-I am an undergaduate computer science student Kansas State University. I am interested in agriculture, particularly 
-
+## Introduction 
+(you can skip this section if you just care about the project 👍)
+I am an undergraduate computer science student Kansas State University.
 
 
  
@@ -20,7 +15,7 @@ I am an undergaduate computer science student Kansas State University. I am inte
 ## Objectives
 
 * Use no GUI tools
-	* Improve effecentcy
-	* All work (including documentation) will be compleated on Windows Subsystem for Linux (WSL). I am typing this in nano RN.
+	* Improve efficiency 
+	* All work (including documentation) will be completed on Windows Subsystem for Linux (WSL). I am typing this in nano RN.
 
 

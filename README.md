@@ -19,3 +19,4 @@ I am an undergraduate computer science student Kansas State University.
 	* All work (including documentation) will be completed on Windows Subsystem for Linux (WSL). I am typing this in nano RN.
 
 
+hi guys im isaac. Im into low-level programming, embedded system, and alternative agriculture, so my project is going to be a tool to help mushroom growers increse the productiveity of their mycelium. 

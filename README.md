@@ -4,7 +4,6 @@
 
 ##Introduction 
 #####(you can skip this section if you just care about the project 👍)
-[insert an image of yourself here]
 I am an undergaduate computer science student Kansas State University. I am interested in agriculture, particularly 
 
 

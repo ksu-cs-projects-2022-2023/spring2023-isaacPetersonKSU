@@ -1,22 +1,23 @@
 # spring2023-isaacPetersonKSU
 # 
 #
+#
 
-##Introduction
+## Introduction
  
-####(you can skip this section if you just care about the project 👍)
+##### (you can skip this section if you just care about the project 👍)
 I am an undergaduate computer science student Kansas State University. I am interested in agriculture, particularly 
 
 
 
  
-#Initial Writeup : mushroom farm automation
+# Initial Writeup : mushroom farm automation
 
-##Problem
+## Problem
 
-##Solution
+## Solution
 
-##Objectives
+## Objectives
 
 * Use no GUI tools
 	* Improve effecentcy

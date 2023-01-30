@@ -10,6 +10,10 @@ My name is Isaac; I'm an undergraduate computer science student Kansas State Uni
 I will design an embedded system that manages fresh air exchange and humidity to optimize mycelium colinization rates without increasing risk of contamination compared with current techneques. 
 
 ## Problem
+
+There are 20,000 species of edible mushroom, yet only 20 are cultivated commercially. Several other species are sucessfully produced only on a small scale, where more care can be taken to prevent contamination. Dispite the fact that mycelium grows exponentially, the teqnieqes used on these small-scale operations don't scale well. There are a few reasons for this. 
+
+
 This system aims to solve a very niche problem that view people are likly aware of, so I will explain it here. Of the 
 
 Mantain optimal growing conditions on a variatey of parameters:

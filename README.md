@@ -1,4 +1,5 @@
 # spring2023-isaacPetersonKSU
+# Embedded system to
 
 ## Introduction 
 (you can skip this section if you just care about the project 👍)
@@ -6,7 +7,7 @@ My name is Isaac; I'm an undergraduate computer science student Kansas State Uni
 
 
  
-# Initial Writeup : mushroom farm automation
+# Initial Writeup : 
 I will design an embedded system that manages fresh air exchange and humidity to optimize mycelium colinization rates without increasing risk of contamination compared with current techneques. 
 
 ## Problem

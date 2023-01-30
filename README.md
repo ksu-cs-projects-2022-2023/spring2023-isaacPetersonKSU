@@ -1,59 +1,81 @@
-# spring2023-isaacPetersonKSU
-# Embedded system to
-
-## Introduction 
-(you can skip this section if you just care about the project 👍)
-My name is Isaac; I'm an undergraduate computer science student Kansas State University and a part-time software engineer at a company that makes Irrigation systems equipt with digital control systems. I'm into low-level programming, embedded sytems, and alternative agriculture. 
+# spring2023-isaacPetersonKSU 
 
 
  
-# Initial Writeup : 
-I will design an embedded system that manages fresh air exchange and humidity to optimize mycelium colinization rates without increasing risk of contamination compared with current techneques. 
+ 
+# Initial Write-up :  Mushroom Spawn Production Tool 
+An embedded system to help mushroom growers manage their crops. The system will control fresh air exchange and humidity in a sterile  container without increasing the risk of contamination. The system is intended for grain spawn production, but could have other, more experimental applications.
+
+###  What is Mushroom Spawn?
+Mushroom Spawn is a energy-dense food source (usually grain) that has been colonized by a mushroom-producing fungus. It is used to give the mushrooms a head start against contamination when inoculating a larger substrate. Grain is extremely cheap, but grain spawn can be worth a lot of money, and mycelium grows at an exponential rate, so a system for producing it would theoretically scale extremely well. 
 
 ## Problem
-There are about 3000 species of edible fungi, yet only 20 are cultivated commercially. Mushroom species are easy to cultivate if they are resistant to contaminations such as molds or bacteria. Several other species, like Oyster Mushrooms and Shiitake, can only be produced at a small scale, where more care can be taken to prevent contamination. Becasue they are harder to produce, these mushrooms are valued more than commerically-avalable types.
+Current practices do not scale well because they constrain the maximum size of a growing container too small to really take advantage of the exponential growth. Here's how the container size is limited:
 
-### Current Practices
-These higher-valued "gormet" mushrooms are grown in a series of airtight containers. The container, usually a Polypropylene bag or glas jar, is filled with an energy-dense food source, like oats, and steralized before inoculation. The contents of this container are now called "grain spawn". Once the grain spawn is fully colonized it is transferred to a larger containter 
+* Lack of Fresh Air Exchange (FAE)
+* Lack of real time moisture regulation
+* Lack of reliable way to detect contamination early
 
- Dispite the fact that mycelium grows exponentially, the techneqes used on these small-scale operations don't scale well. There are two reasons for this : 
-	
-	1. Insuffecnet Fresh Air Excange (FAE).
-	2. The process is too complex.
+### Lack of Fresh Air Exchange (FAE)
+Each KG of grain requires 29.37 L of atmosphere to metabolize (1.39 gallons / 12 oz jar). Without a ventilation system, the maximum colonization rate is limited by whatever fresh air happens to (or not to) drift through the .3 micron hole in a filter. The obvious solution to this is a simple fan, but forcing air through will dry out the substrate and forcing more air than necessary though increases risk of contamination. 
 
-#### Insuffcent Fresh Air Exchange (FAE).
-The common 
+### Lack of real time moisture regulation
+Under the current system, the appropriate amount of moisture must be calculated and mixed before sterilization, at which point the container is sealed until fully colonized, an unknown amount of moisture will be lost to fresh air exchange, these calculations always involve at least some guesswork. Guesswork is not good considering how important it is to get this mixture right. 
+#### **Insufficient moisture** 
+* slows mycelial growth - wasting time.
+* bottlenecks the digestion of available nutrients, wasting money 
+#### **Too much moisture**
+* makes the substrate more hospitable for a wider variety of microorganisms, increasing risk (and therefore frequency) of contamination - wasting time and money.
 
-#### The Process is too complex
-
-This system aims to solve a very niche problem that view people are likly aware of, so I will explain it here. Of the 
-
-Mantain optimal growing conditions on a variatey of parameters:
-* O2 Levels
-	High levels of CO2 are not harmful to fungi, but lower oxygen concentrations slow growth significantly since O2 is needed for digestion. 
-** 
- 
-* Humidity
-	When sealed container technques are used, it is not possable to add more water to the substrate; careful calculations are required to determin the proper ratio of water to substrate. This ratio will differ significantly depending on the type of substrate used as well as the specice being produced. Because of the number of factors at play, guesswork is often involved, dispite how  important it is to get humidity correct : 
-	* Insuffeciant moisture slows mycelial growth - wasting time.
-	* Insuffeciant moisture bottlenecks the digestion of avalable nutrients, which will in turn reduce fruit output - wasting money.
-	* Too much moisture makes the substrate more hospitable for a wider variaty of microrganisms, incresing risk (and therefore frequency) of contamination - wasting time and money.
-Real time humidity control will elemenate the need for such calculations. Maintain an ideal humidity, and the mycelium should have access to as much water as it needs, even if the food source is compleatly dry at inoculation time. 
+Larger grow containers mean more FAE, which means more drying, so this problem scales badly. 
 
 
-
-
- Each cell in the Hyphae can secrete enzynms that digest whatever the colony is eating, but more imporantly, Hypha can act as nutrient transportation machines. 
-
-
-
-Mushrooms are are the fruit produced by underground mycelial networks.
+### Lack of reliable way to detect contamination early
+Early detection of contamination is essential for mitigating the harm they cause by removing the contamination before it spreads to another grow container. Early detection also reduces time and energy invested in crops that will ultimately fail. Contamination is often difficult to identify, and as container sizes increase, transparent containers become less practical, and more growth medium will be hidden on the container's interior. 
 
 ## Solution
+My solution to these problems is a system that can regulate fresh air exchange and humidity. It will also log all sensor data. This easy consistent data collection will make it easier to 
 
-## Objectives
+### Hardware
+* Cap clip (3-D printed PLA) - Mechanical structure
+* Raspberry Pi pico W (RP-2040) - Microcontroller
+* MQ135 - Gas Sensor
+* DHT22 - Temperature and Humidity Sensor
+* GDA8010 - Fan
+* "Grove  ‐  Water  Atomization  v1.0" (ETA1617、NE555)
 
-* Use no GUI tools
-	* Improve efficiency 
-	* All work (including documentation) will be completed on Windows Subsystem for Linux (WSL). I am typing this in nano RN.
+### Software
+A C program running on the pi pico will regulate fresh air exchange and humidity by controlling the atomizer and fan according to inputs from relevant sensors. This part is easy. Log data will also be recorded. If multiple units are present, they will be able to request and send date to each other witlessly. This data will be used to implement a feature that automatically tunes environmental parameters to optimize yield. 
 
+## Algorithmic Functionality 
+### Simple Distributed Database 
+All sensor data will be logged and saved to a database on a host machine (the pi pico w can connect to WIFI networks). The user will be responsible for inputting the yields of each harvest
+
+### Auto-Tune 
+For any parameter the system controls (just FAE and humidity for now), the user will manually set a starting point, say 75°F with 85% humidity. The controllers will be randomly split into 2 groups, half will try a value slightly lower than what the user specified, and half will try something higher. The results are recorded, and yield data is recorded and each parameter is adjusted based on which random group tended to perform better. Several factors will determine how much it is adjusted
+* A parameter that just changed directions will change by half as much as last time
+* A parameter that is moving the same direction as last time will move by twice as much. 
+
+## Qualifications 
+I have written thousands of lines of embedded C for my current employer, I should be allowed to write a few for myself. Admittedly, this project will put me on some unfamiliar territory, specifically CAD and mycology, but I'm picking these thing up quickly already in the week I've spent working so far, so I don't foresee any issues I can't handle. 
+
+
+## Feature List
+
+### Minimum Viable Product (MVP)
+* Functional hardware prototype
+* Fresh Air Exchange control from sensor input
+* Humidity control from sensor input
+* All sensor data is logged to microcontroller's local storage (2MB)
+	* Accessible from computer via 
+
+### Version 1.0
+* Over-The-Air software updates 
+* CLI (cross-platform; written in C++) app to interface with one or several devices at a time
+* Auto-tune feature as described above 
+
+### Version 2.0
+* Simple distributed database (each device will need peripheral storage)
+* Contamination detection via sensor inputs
+* WAN communication between systems to improve volume of grow data being collected.
+* All plastic components can be injection-molded

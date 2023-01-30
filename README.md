@@ -10,9 +10,20 @@ My name is Isaac; I'm an undergraduate computer science student Kansas State Uni
 I will design an embedded system that manages fresh air exchange and humidity to optimize mycelium colinization rates without increasing risk of contamination compared with current techneques. 
 
 ## Problem
+There are about 3000 species of edible fungi, yet only 20 are cultivated commercially. Mushroom species are easy to cultivate if they are resistant to contaminations such as molds or bacteria. Several other species, like Oyster Mushrooms and Shiitake, can only be produced at a small scale, where more care can be taken to prevent contamination. Becasue they are harder to produce, these mushrooms are valued more than commerically-avalable types.
 
-There are 20,000 species of edible mushroom, yet only 20 are cultivated commercially. Several other species are sucessfully produced only on a small scale, where more care can be taken to prevent contamination. Dispite the fact that mycelium grows exponentially, the teqnieqes used on these small-scale operations don't scale well. There are a few reasons for this. 
+### Current Practices
+These higher-valued "gormet" mushrooms are grown in a series of airtight containers. The container, usually a Polypropylene bag or glas jar, is filled with an energy-dense food source, like oats, and steralized before inoculation. The contents of this container are now called "grain spawn". Once the grain spawn is fully colonized it is transferred to a larger containter 
 
+ Dispite the fact that mycelium grows exponentially, the techneqes used on these small-scale operations don't scale well. There are two reasons for this : 
+	
+	1. Insuffecnet Fresh Air Excange (FAE).
+	2. The process is too complex.
+
+#### Insuffcent Fresh Air Exchange (FAE).
+The common 
+
+#### The Process is too complex
 
 This system aims to solve a very niche problem that view people are likly aware of, so I will explain it here. Of the 
 

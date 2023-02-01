@@ -71,11 +71,13 @@ I have written thousands of lines of embedded C for my current employer, I shoul
 
 ### Version 1.0
 * Over-The-Air software updates 
+* Simple distributed database (each device will need peripheral storage)
 * CLI (cross-platform; written in C++) app to interface with one or several devices at a time
 * Auto-tune feature as described above 
 
 ### Version 2.0
-* Simple distributed database (each device will need peripheral storage)
-* Contamination detection via sensor inputs
+Contamination detection via sensor inputs
 * WAN communication between systems to improve volume of grow data being collected.
 * All plastic components can be injection-molded
+* Electrical pulses to induce fruiting conditions
+* Electrical control of other behavior may be possable, as well as data collection via the monitoring of electrical pulses within the mycelial network.

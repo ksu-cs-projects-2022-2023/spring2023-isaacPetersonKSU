@@ -1,4 +1,5 @@
-# spring2023-isaacPetersonKSU 
+# Isaac Peterson's Seinor Design Project
+# Advisor : Mitchell L. Neilsen 
 
 
  

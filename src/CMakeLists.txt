@@ -1,4 +1,6 @@
-cmake_minimum_required(3.22.1)
+cmake_minimum_required(3.22.0)
+
+
 
 project("mycelium_tool")
 

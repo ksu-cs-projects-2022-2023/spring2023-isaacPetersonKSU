@@ -1,6 +1,12 @@
-add_executable(picow_blink
-        picow_blink.c
-        )
+cmake_minimum_required(3.22.1)
+
+project("mycelium_tool")
+
+
+
+add_executable("${PROJECT_NAME}" "main.c")
+
+
 
 target_link_libraries(picow_blink
         pico_stdlib              # for core functionality
